@@ -22,8 +22,8 @@ def zooMenuJSON(zoo_id):
     return jsonify(Animals=[i.serialize for i in items])
 
 
-@app.route('/zoo/<int:zoo_id>/menu/<int:zoo_id>/JSON')
-def animalJSON(zoo_id, zoo_id):
+@app.route('/zoo/<int:zoo_id>/menu/<int:animal_id>/JSON')
+def animalJSON(zoo_id, animal_id):
     Menu_Item = session.query(Animal).filter_by(id=zoo_id).one()
     return jsonify(Menu_Item=Menu_Item.serialize)
 
@@ -123,9 +123,9 @@ def newAnimal(zoo_id):
 # Edit a menu item
 
 
-@app.route('/zoo/<int:zoo_id>/menu/<int:zoo_id>/edit',
+@app.route('/zoo/<int:zoo_id>/menu/<int:animal_id>/edit',
            methods=['GET', 'POST'])
-def editAnimal(zoo_id, zoo_id):
+def editAnimal(zoo_id, animal_id):
     editedItem = session.query(Animal).filter_by(id=zoo_id).one()
     if request.method == 'POST':
         if request.form['name']:
@@ -142,16 +142,16 @@ def editAnimal(zoo_id, zoo_id):
     else:
 
         return render_template(
-            'editAnimal.html', zoo_id=zoo_id, zoo_id=zoo_id, item=editedItem)
+            'editAnimal.html', zoo_id=zoo_id, animal_id=animal_id, item=editedItem)
 
     # return 'This page is for editing menu item %s' % zoo_id
 
 # Delete a menu item
 
 
-@app.route('/zoo/<int:zoo_id>/menu/<int:zoo_id>/delete',
+@app.route('/zoo/<int:zoo_id>/menu/<int:animal_id>/delete',
            methods=['GET', 'POST'])
-def deleteAnimal(zoo_id, zoo_id):
+def deleteAnimal(zoo_id, animal_id):
     itemToDelete = session.query(Animal).filter_by(id=zoo_id).one()
     if request.method == 'POST':
         session.delete(itemToDelete)

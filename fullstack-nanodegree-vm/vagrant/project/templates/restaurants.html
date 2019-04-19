@@ -7,19 +7,19 @@
 
 <body>
 <div class = 'pane'>
-<h1>Restaurants</h1>
+<h1>zoos</h1>
 
-<a href="{{url_for('newRestaurant')}}" > <h3> Create a New Restaurant </h3> </a>
+<a href="{{url_for('newzoo')}}" > <h3> Create a New zoo </h3> </a>
 
-{% for restaurant in restaurants %}
+{% for zoo in zoos %}
 
 
 
-<a href = "{{url_for('showMenu', restaurant_id = restaurant.id)}}"> <p>{{restaurant.name}}</p></a>
+<a href = "{{url_for('showAnimal', zoo_id = zoo.id)}}"> <p>{{zoo.name}}</p></a>
 
-<p><a href = "{{url_for('editRestaurant',restaurant_id = restaurant.id)}}">Edit Restaurant</a></p>
+<p><a href = "{{url_for('editzoo',zoo_id = zoo.id)}}">Edit zoo</a></p>
 
-<p> <a href = "{{url_for('deleteRestaurant',restaurant_id = restaurant.id)}}">Delete Restaurant</a> </p>
+<p> <a href = "{{url_for('deletezoo',zoo_id = zoo.id)}}">Delete zoo</a> </p>
 
 
 

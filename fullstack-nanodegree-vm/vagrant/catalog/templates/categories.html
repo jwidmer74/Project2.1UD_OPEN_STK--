@@ -26,8 +26,14 @@
     <table style='width: 100%'>
      <tr>
       <td style='width: 12%'></td>
-      <div  class="center">categories
-      <td style='width: 76%'>  
+      <div  class="center"><h2>categories</h2>
+      {% for c in categories %} 
+      <p>{{c.name}}</p>
+      {% endfor %}
+      <td style='width: 76%'> 
+      
+
+
       </div>    
       </td>
       <td style='width: 12%'></td>

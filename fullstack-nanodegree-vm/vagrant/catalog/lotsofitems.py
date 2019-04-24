@@ -24,14 +24,14 @@ session.add(category1)
 session.commit()
 
 Item2 = Item(name="net", description="standard size",
-                     title="net", category=category1)
+                     price="$15.50",title="net", category=category1)
 
 session.add(Item2)
 session.commit()
 
 
 Item1 = Item(name="backboard", description="plastic and wooden",
-                     title="backboard", category=category1)
+                     price="$50.50",title="backboard", category=category1)
 
 session.add(Item1)
 session.commit()
@@ -43,14 +43,14 @@ session.add(category2)
 session.commit()
 
 Item2 = Item(name="Stick", description="long piece of wood",
-                     title="stick", category=category2)
+                     price="$6.50",title="stick", category=category2)
 
 session.add(Item2)
 session.commit()
 
 
 Item1 = Item(name="Googles", description="put over your eyes",
-                     title="Googles", category=category2)
+                     price="$10.50",title="Googles", category=category2)
 
 session.add(Item1)
 session.commit()
@@ -61,14 +61,14 @@ session.add(category3)
 session.commit()
 
 Item2 = Item(name="bat", description="wooden or aluminum",
-                     title="bat", category=category3)
+                     price="$4.50",title="bat", category=category3)
 
 session.add(Item2)
 session.commit()
 
 
 Item1 = Item(name="glove", description="right and left handed",
-                     title="glove", category=category3)
+                     price="$25.50",title="glove", category=category3)
 
 session.add(Item1)
 session.commit()
@@ -79,14 +79,14 @@ session.add(category4)
 session.commit()
 
 Item2 = Item(name="Frisbee Net", description="iron chain",
-                     title="Frisbee Net", category=category4)
+                     price="$8.50",title="Frisbee Net", category=category4)
 
 session.add(Item2)
 session.commit()
 
 
 Item1 = Item(name="Signed Frisbee", description="Frisbee signed by legions of the game",
-                     title="Signed", category=category4)
+                     price="$15.50",title="Signed", category=category4)
 
 session.add(Item1)
 session.commit()
@@ -97,14 +97,14 @@ session.add(category5)
 session.commit()
 
 Item2 = Item(name="Snow Board gooogles", description="plastic",
-                     title="Snow Board gooogles", category=category5)
+                     price="$5.50",title="Snow Board gooogles", category=category5)
 
 session.add(Item2)
 session.commit()
 
 
 Item1 = Item(name="Snowboards", description="Fiberglass",
-                     title="Snowboards", category=category5)
+                     price="$115.50",title="Snowboards", category=category5)
 
 session.add(Item1)
 session.commit()

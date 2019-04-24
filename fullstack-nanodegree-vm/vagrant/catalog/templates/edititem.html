@@ -4,11 +4,9 @@
 <link rel=stylesheet type=text/css href="{{ url_for('static', filename='styles.css') }}">
 	</head>
 
-<body><h1> Edit Menu Item </h1>
-
+<body>
 <div class="header">
   <a href="#default" class="logo">Catalog App</a>
- 
   <div class="header-right">
     <br/>
  
@@ -29,7 +27,9 @@
      <tr>
       <td style='width: 12%'></td>
       <div  class="center">
-			<form action="#" method = 'post'>
+	  <h1> Edit Item </h1>
+
+<form action="#" method = 'post'>
 
 
 	<p>Name:</p>
@@ -38,34 +38,34 @@
 		<input type ='text' size='30' name='description' placeholder = '{{item.description}}'>
 	<p>Price:</p>
 		<input type ='text' size='30' name='price' placeholder = '{{item.price}}'>
-	<p>Course:<p>
+	<p>Title:<p>
 
-	{% if item.course == 'Appetizer' %}
-		<dd><input type ='radio' name='course' value='Appetizer'checked >Appetizer</dd>
+	{% if item.title == 'net' %}
+		<dd><input type ='radio' name='title' value='net'checked >net</dd>
 	{%else%}
-	<dd><input type ='radio' name='course' value='Appetizer' >Appetizer</dd>
+	<dd><input type ='radio' name='title' value='net' >net</dd>
     {% endif %}
 
-    {% if item.course == 'Entree' %}
-       <dd><input type ='radio' name='course' value='Entree' checked>Entree</dd>
+    {% if item.title == 'backboard' %}
+       <dd><input type ='radio' name='title' value='backboard' checked>backboard</dd>
 
     {%else%}
-		<dd><input type ='radio' name='course' value='Entree'>Entree</dd>
+		<dd><input type ='radio' name='title' value='backboard'>backboard</dd>
     {% endif %}
 
-	{% if item.course == 'Dessert'%}
-		<dd><input type ='radio' name='course' value='Dessert'checked >Dessert</dd>
+	{% if item.title == 'stick'%}
+		<dd><input type ='radio' name='title' value='stick'checked >stick</dd>
 
 	{% else %}
-	   <dd><input type ='radio' name='course' value='Dessert'>Dessert</dd>
+	   <dd><input type ='radio' name='title' value='stick'>stick</dd>
 
 	{% endif %}
 
 
-	{%if item.course =='Beverage'%}
-		<dd><input type ='radio' name='course' value='Beverage'checked >Beverage</dd>
+	{%if item.title =='Googles'%}
+		<dd><input type ='radio' name='title' value='Googles'checked >Googles</dd>
 	{% else %}
-		<dd><input type ='radio' name='course' value='Beverage'>Beverage</dd>
+		<dd><input type ='radio' name='title' value='Googles'>Googles</dd>
 	{% endif %}
 
 
@@ -74,13 +74,10 @@
 
 
 <a href = '#'> Cancel </a>
-      {% for c in categories %} 
-      <p>{{c.name}}</p>
-      {% endfor %}
-      <td style='width: 76%'> 
-      
 
 
+</form>
+      <td style='width: 76%'>  
       </div>    
       </td>
       <td style='width: 12%'></td>

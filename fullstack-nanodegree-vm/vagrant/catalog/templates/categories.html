@@ -27,9 +27,24 @@
      <tr>
       <td style='width: 12%'></td>
       <div  class="center"><h2>categories</h2>
-      {% for c in categories %} 
-      <p>{{c.name}}</p>
-      {% endfor %}
+      <h1>Categories</h1>
+
+<a href="{{url_for('newCategory')}}" > <h3> Create a New Category </h3> </a>
+
+{% for category in categories %}
+
+
+
+<a href = "{{url_for('showMenu', category_id = category.id)}}"> <p>{{category.name}}</p></a>
+
+<p><a href = "{{url_for('editCategory',category_id = category.id)}}">Edit Category</a></p>
+
+<p> <a href = "{{url_for('deleteCategory',category_id = category.id)}}">Delete Category</a> </p>
+
+
+
+
+{% endfor %}
       <td style='width: 76%'> 
       
 

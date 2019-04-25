@@ -33,7 +33,7 @@ def categoryMenuJSON(category_id):
 
 
 @app.route('/category/<int:category_id>/menu/<int:menu_id>/JSON')
-def ItemJSON(category_id, menu_id):
+def itemJSON(category_id, menu_id):
     Item = session.query(Item).filter_by(id=menu_id).one()
     return jsonify(Item=Item.serialize)
 
@@ -55,7 +55,7 @@ def showCategories():
 
 # Create a new category
 @app.route('/category/new/', methods=['GET', 'POST'])
-def newcategory():
+def newCategory():
     if request.method == 'POST':
         newCategory = Category(name=request.form['name'])
         session.add(newCategory)

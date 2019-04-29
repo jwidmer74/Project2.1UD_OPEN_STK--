@@ -1,6 +1,8 @@
 from flask import Flask, render_template, request, redirect, jsonify, url_for
 from sqlalchemy import create_engine
+from sqlalchemy.sql import func
 from sqlalchemy.orm import sessionmaker
+from sqlalchemy.sql import select
 from database_setup2 import Base, Category, Item
 
 app = Flask(__name__)
@@ -42,16 +44,21 @@ def itemJSON(category_id, menu_id):
 def categoriesJSON():
     categories = session.query(Category).all()
     return jsonify(categories=[r.serialize for r in categories])
-
+	
 
 # Show all categories
 @app.route('/')
 @app.route('/category/')
 def showCategories():
+	
     categories = session.query(Category).all()
     # return "This page will show all my categories"
     return render_template('categories.html', categories=categories)
-
+@app.route('/')
+def showLatestMenuItems():
+	conn = engine.connect()
+    latestItems = conn.execute(select([name.item])).scalar()
+    return render_template('categories.html',latestItems=latestItems)
 
 # Create a new category
 @app.route('/category/new/', methods=['GET', 'POST'])
@@ -111,7 +118,6 @@ def showMenu(category_id):
     # return 'This page is the menu for category %s' % category_id
 
 # Create a new menu item
-
 
 @app.route(
     '/category/<int:category_id>/menu/new/', methods=['GET', 'POST'])

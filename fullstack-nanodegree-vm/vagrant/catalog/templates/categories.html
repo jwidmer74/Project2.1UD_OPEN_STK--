@@ -19,14 +19,8 @@
 
 <table id="big" style='width: 100%'>
  <tr>
-  <td></td>
-  </tr>
- <tr>
-  <td style='width: 75px'>
-    <table style='width: 100%'>
-     <tr>
-      <td style='width: 12%'></td>
-      <div  class="center"><h2>categories</h2>
+ <td width= 12%></td><br/>
+  <td class="rightPanel">      <div><h2>Categories</h2>
    
 
 <a href="{{url_for('newCategory')}}" > <h3> Create a New Category </h3> </a>
@@ -45,19 +39,19 @@
 
 
 {% endfor %}
-      <td style='width: 76%'> 
-      
+      </td> 
+      <td><br/>
+  <td class="leftPanel" ><h2>Latest Items</h2><br/>
+  <p>{{latesItems}}</p>
 
-
-      </div>    
-      </td>
-      <td style='width: 12%'></td>
-     </tr>
-    </table>
+  </td><td width=12%>
+  
   </td>
- 
- </tr>
-</table>
+
+
+      </div>
+  </tr>
+
 
 </body>
 </html>

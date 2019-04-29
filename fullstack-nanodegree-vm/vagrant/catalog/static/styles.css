@@ -57,10 +57,20 @@ body {
 .genbackground {
   background:grey
 }
-.center {
+.rightPanel {
+  vertical-align: text-top;	
   margin: auto;
-  width: 76%;
+  width: 20%;
   border: 3px solid grey;
   padding: 10px;
-  height: 900px;
+  height: 600px;
 }
+.leftPanel {
+  vertical-align: text-top;	
+  margin: auto;
+  width: 56%;
+  border: 3px solid grey;
+  padding: 10px;
+  height: 600px;
+}
+

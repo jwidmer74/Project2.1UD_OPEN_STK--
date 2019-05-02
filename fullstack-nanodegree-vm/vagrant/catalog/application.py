@@ -51,7 +51,8 @@ def showCategories():
     categories = session.query(Category).all()
     conn = engine.connect()
     
-    latestItems = conn.execute(select([Item.name])).scalar()
+    #latestItems = conn.execute(select([Item.name])).scalar()
+    latestItems = session.query((select([Item.name]).order_by((Item.name).desc()).limit(10))).all()
     return render_template('categories.html',latestItems=latestItems,categories=categories)
 
 # Create a new category

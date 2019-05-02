@@ -41,9 +41,11 @@
 {% endfor %}
       </td> 
       <td><br/>
-  <td class="leftPanel" ><h2>Latest Items</h2><br/>
-  <p>{{latestItems}}</p>
-
+  <td class="leftPanel" ><h2>Latest Items</h2>
+  
+  {% for item in latestItems%}
+  <p>{{item.name}}</p>
+  {% endfor %}
   </td><td width=12%>
   
   </td>

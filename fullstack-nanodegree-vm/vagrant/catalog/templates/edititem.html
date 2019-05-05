@@ -38,34 +38,34 @@
 		<input type ='text' size='30' name='description' placeholder = '{{item.description}}'>
 	<p>Price:</p>
 		<input type ='text' size='30' name='price' placeholder = '{{item.price}}'>
-	<p>Title:<p>
+	<p>material:<p>
 
-	{% if item.title == 'net' %}
-		<dd><input type ='radio' name='title' value='net'checked >net</dd>
+	{% if item.material == 'net' %}
+		<dd><input type ='radio' name='material' value='net'checked >net</dd>
 	{%else%}
-	<dd><input type ='radio' name='title' value='net' >net</dd>
+	<dd><input type ='radio' name='material' value='net' >net</dd>
     {% endif %}
 
-    {% if item.title == 'backboard' %}
-       <dd><input type ='radio' name='title' value='backboard' checked>backboard</dd>
+    {% if item.material == 'backboard' %}
+       <dd><input type ='radio' name='material' value='backboard' checked>backboard</dd>
 
     {%else%}
-		<dd><input type ='radio' name='title' value='backboard'>backboard</dd>
+		<dd><input type ='radio' name='material' value='backboard'>backboard</dd>
     {% endif %}
 
-	{% if item.title == 'stick'%}
-		<dd><input type ='radio' name='title' value='stick'checked >stick</dd>
+	{% if item.material == 'stick'%}
+		<dd><input type ='radio' name='material' value='stick'checked >stick</dd>
 
 	{% else %}
-	   <dd><input type ='radio' name='title' value='stick'>stick</dd>
+	   <dd><input type ='radio' name='material' value='stick'>stick</dd>
 
 	{% endif %}
 
 
-	{%if item.title =='Googles'%}
-		<dd><input type ='radio' name='title' value='Googles'checked >Googles</dd>
+	{%if item.material =='Googles'%}
+		<dd><input type ='radio' name='material' value='Googles'checked >Googles</dd>
 	{% else %}
-		<dd><input type ='radio' name='title' value='Googles'>Googles</dd>
+		<dd><input type ='radio' name='material' value='Googles'>Googles</dd>
 	{% endif %}
 
 

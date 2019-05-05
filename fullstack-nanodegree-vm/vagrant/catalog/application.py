@@ -76,6 +76,8 @@ def editCategory(category_id):
     if request.method == 'POST':
         if request.form['name']:
             editedCategory.name = request.form['name']
+            session.add(editedCategory)
+            session.commit()
             return redirect(url_for('showCategories'))
     else:
         return render_template('editCategory.html', category=editedCategory)
@@ -139,15 +141,14 @@ def editItem(category_id, menu_id):
             editedItem.description = request.form['name']
         if request.form['price']:
             editedItem.price = request.form['price']
-        if request.form['course']:
-            editedItem.course = request.form['course']
+        if request.form['material']:
+            editedItem.material = request.form['material']
         session.add(editedItem)
         session.commit()
         return redirect(url_for('showMenu', category_id=category_id))
     else:
 
-        return render_template(
-            'editItem.html', category_id=category_id, menu_id=menu_id, item=editedItem)
+        return render_template('editItem.html', category_id=category_id, menu_id=menu_id, item=editedItem)
 
 # return 'This page is for editing menu item %s' % menu_id
 

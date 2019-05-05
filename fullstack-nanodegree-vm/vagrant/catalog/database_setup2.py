@@ -30,7 +30,7 @@ class Item(Base):
     id = Column(Integer, primary_key=True)
     description = Column(String(250))
     price = Column(String(8))
-    title = Column(String(250))
+    material = Column(String(250))
     category_id = Column(Integer, ForeignKey('category.id'))
     category = relationship(Category)
 
@@ -41,7 +41,7 @@ class Item(Base):
             'name': self.name,
             'description': self.description,
             'id': self.id,
-            'title': self.title,
+            'material': self.material,
             'price': self.price,
         }
 

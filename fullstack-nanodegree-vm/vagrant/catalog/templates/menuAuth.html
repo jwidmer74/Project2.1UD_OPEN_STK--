@@ -44,7 +44,7 @@
 
     {% if items !=[] %}
 
-
+		<a href = "{{url_for('newItem', category_id = category.id )}}">Create New Item</a>
 	</br></br>
 
 	<h2>Wooden</h2>
@@ -60,7 +60,9 @@
 
 		<p>{{i.price}}</p>
 	
-
+		<a href='{{url_for('editItem', category_id = category.id, menu_id=i.id ) }}' >Edit</a>
+	</br>
+	<a href='{{url_for('deleteItem', category_id = category.id, menu_id=i.id ) }}' >Delete</a>
 </br>
 </br>
 		{% endif %}
@@ -74,7 +76,7 @@
 	<h2>Plastic</h2>
 
 		{% for i in items %}
-		{% if i.material == 'plastic' %}
+		{% if i.material == 'Plastic' %}
 
 		<p>{{i.name}}</p>
 	
@@ -83,7 +85,10 @@
 	
 
 		<p>{{i.price}}</p>
-
+	
+		<a href='{{url_for('editItem', category_id = category.id, menu_id=i.id ) }}' >Edit</a>
+	</br>
+	<a href='{{url_for('deleteItem', category_id = category.id, menu_id=i.id ) }}' >Delete</a>
 </br>
 </br>
         {% endif %}
@@ -107,7 +112,9 @@
 
 		<p>{{i.price}}</p>
 	
-
+		<a href='{{url_for('editItem', category_id = category.id, menu_id=i.id ) }}' >Edit</a>
+	
+	<a href='{{url_for('deleteItem', category_id = category.id, menu_id=i.id ) }}' >Delete</a>
 </br>
 </br>
 		{% endif %}
@@ -118,7 +125,7 @@
 
 		</br></br>
 
-		<h2>Rubber</h2>
+			<h2>Rubber</h2>
 
 		{% for i in items %}
 		{% if i.material == 'rubber' %}
@@ -131,7 +138,9 @@
 
 		<p>{{i.price}}</p>
 	
-
+		<a href='{{url_for('editItem', category_id = category.id, menu_id=i.id ) }}' >Edit</a>
+	
+	<a href='{{url_for('deleteItem', category_id = category.id, menu_id=i.id ) }}' >Delete</a>
 </br>
 </br>
 		{% endif %}
@@ -140,7 +149,7 @@
 		
 		
 
-		</br></br>	
+		</br></br>
 
 	<h2>Other Material</h2>
 
@@ -155,7 +164,9 @@
 
 		<p>{{i.price}}</p>
 
-
+		<a href='{{url_for('editItem', category_id = category.id, menu_id=i.id ) }}' >Edit</a>
+	</br>
+	<a href='{{url_for('deleteItem', category_id = category.id, menu_id=i.id ) }}' >Delete</a>
 </br>
 </br>
 {% endif %}
@@ -165,8 +176,8 @@
 		
 
 		{% else %}
-
-
+		<p> You currently have no Items. <p>
+		<a href = "{{url_for('newItem', category_id = category.id )}}">Create New Item</a>
 			{% endif %}
 </div>
   <td style='width: 76%'> 

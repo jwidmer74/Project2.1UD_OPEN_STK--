@@ -138,14 +138,14 @@ def showMenu(category_id):
 
 	# Create a new menu item
 
-@app.route('/category/<int:category_id>/menu/new/', methods=['GET', 'POST'])
+@app.route('/categoryauth/<int:category_id>/menu/new/', methods=['GET', 'POST'])
 def newItem(category_id):
     if request.method == 'POST':
-        newItem = Item(name=request.form['name'], description=request.form['description'], price=request.form['price'], course=request.form['course'], category_id=category_id)
+        newItem = Item(name=request.form['name'], description=request.form['description'], price=request.form['price'], material=request.form['material'], category_id=category_id)
         session.add(newItem)
         session.commit()
 
-        return redirect(url_for('showMenu', category_id=category_id))
+        return redirect(url_for('showMenuAuth', category_id=category_id))
     else:
         return render_template('newItem.html', category_id=category_id)
 
@@ -156,7 +156,7 @@ def newItem(category_id):
 	# Edit a menu item
 
 
-@app.route('/category/<int:category_id>/menu/<int:menu_id>/edit',
+@app.route('/categoryauth/<int:category_id>/menu/<int:menu_id>/edit',
            methods=['GET', 'POST'])
 def editItem(category_id, menu_id):
     editedItem = session.query(Item).filter_by(id=menu_id).one()
@@ -181,7 +181,7 @@ def editItem(category_id, menu_id):
 # Delete a menu item
 
 
-@app.route('/category/<int:category_id>/menu/<int:menu_id>/delete',methods=['GET', 'POST'])
+@app.route('/categoryauth/<int:category_id>/menu/<int:menu_id>/delete',methods=['GET', 'POST'])
 def deleteItem(category_id, menu_id):
     itemToDelete = session.query(Item).filter_by(id=menu_id).one()
     if request.method == 'POST':

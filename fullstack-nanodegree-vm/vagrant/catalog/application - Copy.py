@@ -1,15 +1,21 @@
 from flask import Flask, render_template, request, redirect, jsonify, url_for, abort, g,make_response
 from flask import session as login_session
-from sqlalchemy import create_engine, asc
-app = Flask(__name__)
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy import create_engine
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.sql import func
+from sqlalchemy.orm import sessionmaker,relationship
 from sqlalchemy.sql import select
-from database_setup2 import Base,Category,Item
-import  random, string
+from database_setup2 import Base,Category,Item,User
+from flask.ext.httpauth import HTTPBasicAuth
+import json, random, string
+from oauth2client.client import flow_from_clientsecrets
+from oauth2client.client import FlowExchangeError
+import httplib2
+ 
+import requests
 
-
-
-
+app = Flask(__name__)
+auth = HTTPBasicAuth()
 engine = create_engine('sqlite:///catalog.db')
 Base.metadata.bind = engine
 
@@ -17,12 +23,14 @@ DBSession = sessionmaker(bind=engine)
 session = DBSession()
 
 
-@app.route('/login')
-def showLogint():
-	state = ''.join(random.choice(string.ascii_uppercase + string.digits) for x in xrange(32))
-	login_session['state']=state
-	
-    #return render_template('login.html')
+app = Flask(__name__)
+
+
+CLIENT_ID = json.loads(
+    open('client_secrets.json', 'r').read())['web']['client_id']
+
+
+
 
 
 
@@ -184,7 +192,7 @@ def deleteItem(category_id, menu_id):
     else:
         return render_template('deleteItem.html', item=itemToDelete)
 		# return "This page is for deleting menu item %s" % menu_id
-'''
+
 @auth.verify_password
 def verify_password(username_or_token, password):
     #Try to see if it's a token first
@@ -198,7 +206,12 @@ def verify_password(username_or_token, password):
     g.user = user
     return True
 
-
+@app.route('/login')
+def start():
+	#state = ''.join(random.choice(string.ascii_uppercase + string.digits) for x in xrange(32))
+	#login_session['state']=state
+	
+    return render_template('login.html')
 
 @app.route('/login/<provider>', methods = ['POST'])
 def login(provider):
@@ -306,12 +319,13 @@ def get_user(id):
 def get_resource():
     return jsonify({ 'data': 'Hello, %s!' % g.user.username })
 
-'''
+
 
 if __name__ == '__main__':
     app.debug = True
     #app.config['SECRET_KEY'] = ''.join(random.choice(string.ascii_uppercase + string.digits) for x in xrange(32))
-    app.secret_key = 'super_secret_key'
     app.run(host='0.0.0.0', port=5000)
 	
-
+if __name__ == '__main__':
+    app.debug = True
+    app.run(host='0.0.0.0', port=5000)

@@ -1,0 +1,15 @@
+
+Have the following tabs open
+https://developers.google.com/identity/sign-in/web/sign-in
+https://code.thebur.net/2018/04/28/google-oauth2-offline-access-in-single-page-apps/
+
+
+
+
+1. Change `<script src="//apis.google.com/js/platform.js?onload=start"></script>` to `<script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>`
+2. Add `<meta name="google-signin-client_id" content="YOUR_CLIENT_ID">` between the `<head>` tags
+3. Change `<span class="g-signin"` to `<span class="gsignin2"`
+4. Remove `data-clientid="CLIENT_ID"` from the span
+5. Change `data-callback` to `data-onsuccess` (edited) 
+
+
